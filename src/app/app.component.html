@@ -1,0 +1,20 @@
+<!-- app.component.html -->
+<div class="app-container">
+    <header *ngIf="!isAuthenticated()">
+        <h1>Welcome To TOYOTA Vehicle Service</h1>
+        <h4>Appointment Booking System</h4>
+    </header>
+    <nav *ngIf="!isAuthenticated()">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/register" routerLinkActive="active">Register</a>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+    <!-- <h4 *ngIf="isAuthenticated()">Appointment Booking System</h4>
+    <nav *ngIf="isAuthenticated()">
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/appointment" routerLinkActive="active">Appointment</a>
+        <a (click)="logout()">Logout</a>
+    </nav> -->
+    <router-outlet *ngIf="isAuthenticated()"></router-outlet>
+    <router-outlet *ngIf="!isAuthenticated()"></router-outlet>
+</div>
